@@ -1,0 +1,9 @@
+pandas
+scikit-learn
+numpy
+ipykernel
+Flask
+PyYAML
+
+-e .
+mlflow==2.2.2 

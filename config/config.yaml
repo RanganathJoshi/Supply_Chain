@@ -1,0 +1,23 @@
+root_folder: artifacts
+
+data_ingestion:
+  source: "https://github.com/RanganathJoshi/supply_chain_price_prediction/blob/main/SCMS_Delivery_History_Dataset.zip"
+  unzip_folder: artifacts/data_ingestion
+  raw_data: artifacts/data_ingestion/supply.csv
+  train_data: artifacts/data_ingestion/train.csv
+  valid_data: artifacts/data_ingestion/valid.csv
+  test_data: artifacts/data_ingestion/test.csv
+ 
+
+data_transformation:
+  root_path: artifacts/data_transformation
+  train_data: artifacts/data_transformation/train.csv
+  valid_data: artifacts/data_transformation/valid.csv
+  test_data: artifacts/data_transformation/test.csv
+  processor: artifacts/model_training/processor.pkl
+
+
+model_training:
+  root_path: artifacts/model_training
+  model_path: artifacts/model_training/model.pkl
+  processor: artifacts/model_training/processor.pkl 

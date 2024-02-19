@@ -1,0 +1,12 @@
+import os
+import pandas
+from src.SupplyChainPricing.Components.DataIngestion import DataIngestionWorkflow
+from src.SupplyChainPricing.Components.FeatureEngineering import DataTransformation
+from src.SupplyChainPricing.Components.ModelTrainer import Model_Trainer
+data_ingestion=DataIngestionWorkflow()
+train_path,test_path=data_ingestion.initiate_data_ingestion()
+data_transformation=DataTransformation()
+train_path,test_path=data_transformation.initiate_data_transform(train_path,test_path)
+model_trainer=Model_Trainer()
+print(train_path,test_path)
+model_trainer.initiate_model_training(train_path,test_path)

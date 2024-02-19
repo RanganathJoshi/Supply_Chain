@@ -1,0 +1,5 @@
+import os
+import pandas
+from src.SupplyChainPricing.Components.DataIngestion import DataIngestionWorkflow
+data_ingestion=DataIngestionWorkflow()
+data_ingestion.initiate_data_ingestion()
