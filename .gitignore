@@ -1,2 +1,5 @@
-/artifacts
 /mlruns
+/try.py
+/logs
+/notebooks
+/plugins

@@ -22,7 +22,7 @@ class ModelTrainingConfig:
     processor_path=model_training.get('processor')
     model_path=model_training.get('model_path')
 
-
+ 
 class Model_Trainer:
     def __init__(self):
         self.config=ModelTrainingConfig()
@@ -42,8 +42,6 @@ class Model_Trainer:
             
 
             models={
-                'Linear Regression':LinearRegression(),
-                'Decision Tree Regression':DecisionTreeRegressor(),
                 'Random Forest Regression':RandomForestRegressor(),
                 'Adaboost regressor': AdaBoostRegressor(),
                 'gradientboost regressor': GradientBoostingRegressor()
@@ -62,7 +60,7 @@ class Model_Trainer:
             logging.info("Best Model found")
             save_obj(trained_models[best_model_name],self.config.model_path)
 
-
+ 
 
         except Exception as e:
             logging.info("Error while occuring model training")

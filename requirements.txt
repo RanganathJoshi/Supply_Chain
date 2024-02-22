@@ -1,9 +1,8 @@
 pandas
 scikit-learn
 numpy
-ipykernel
-Flask
 PyYAML
+Flask
+requests
+subprocess.run
 
--e .
-mlflow==2.2.2 

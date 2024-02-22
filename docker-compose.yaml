@@ -1,0 +1,23 @@
+version: "1"
+services:
+  airflow:
+    build:
+      context: ./
+      dockerfile: DockerFile.airflow
+    image: supply_chain_image
+    container_name: supply_chain_prediction_airflow
+    ports:
+      - "8080:8080"
+
+
+
+  Flask:
+    build: 
+      context: ./
+      dockerfile: DockerFile.flask
+    image: flask_image
+    container_name: Supply_chain_prediction_flask
+    ports:
+      - "80:80"
+
+  

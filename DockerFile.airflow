@@ -1,0 +1,17 @@
+FROM python:3.8-slim-buster
+USER root
+RUN mkdir /app
+COPY . /app
+WORKDIR /app/
+RUN export AIRFLOW_HOME=~/airflow
+RUN pip3 install apache-airflow==2.7.3 --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.7.3/constraints-3.8.txt"
+RUN pip3 install -r requirements.txt
+RUN python setup.py install
+ENV AIRFLOW_HOME="/app/airflow"
+ENV AIRFLOW_CORE_DAGBAG_IMPORT_TIMEOUT=2000
+ENV AIRFLOW_CORE_ENABLE_XCOM_PICKLING=True
+RUN airflow db migrate
+RUN airflow users create -e ranganath.joshi17@gmail.com -f Ranganath -l Joshi -p admin -r Admin -u admin
+RUN chmod 777 start.sh
+ENTRYPOINT [ "/bin/sh" ]
+CMD [ "start.sh" ]

@@ -6,6 +6,10 @@ import sys
 from pathlib import Path
 from src.SupplyChainPricing.utils import load_obj,read_yaml,change_columns_names
 from src.SupplyChainPricing.constants import *
+import mlflow.pyfunc
+
+model_name="Best_obtained_mode"
+model_version=2
 
 class PredictPipeline:
 

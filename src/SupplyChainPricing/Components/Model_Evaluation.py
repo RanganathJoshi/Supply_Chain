@@ -27,10 +27,12 @@ class ModelEvaluation:
             model=load_obj(self.model_save)
             preprocessor=load_obj(self.processor_save)
 
-            tracking_url_type_store=urlparse(mlflow.get_tracking_uri()).scheme
-            print(tracking_url_type_store)
-
             with mlflow.start_run():
+                remote_server_uri="https://dagshub.com/RanganathJoshi/Supply_Chain.mlflow"
+                mlflow.set_tracking_uri(remote_server_uri)
+
+                tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+
                 mlflow.log_artifacts(Path('artifacts'))
                 if tracking_url_type_store != "file":
                     mlflow.sklearn.log_model(model, "model", registered_model_name="Best_obtained_mode")
